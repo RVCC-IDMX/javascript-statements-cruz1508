@@ -19,7 +19,7 @@
  * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isInteger
  */
 function isInteger(value) {
-  // Implementation goes here.
+  return Number.isInteger(value);
 }
 
 /**
@@ -30,7 +30,7 @@ function isInteger(value) {
  * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_AND
  */
 function logicalAnd(a, b) {
-  // Implementation goes here.
+  return !!a && !!b;
 }
 
 /**
@@ -41,7 +41,7 @@ function logicalAnd(a, b) {
  * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_OR
  */
 function logicalOr(a, b) {
-  // Implementation goes here.
+  return !!a || !!b;
 }
 
 /**
@@ -51,7 +51,7 @@ function logicalOr(a, b) {
  * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_NOT
  */
 function invertBoolean(bool) {
-  // Implementation goes here.
+  return !bool;
 }
 
 /**
@@ -61,7 +61,8 @@ function invertBoolean(bool) {
  * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/do...while
  */
 function countDigits(num) {
-  // Implementation goes here.
+  if (!Number.isInteger(num)) return 0;
+  return Math.abs(num).toString().length;
 }
 
 /**
@@ -71,7 +72,11 @@ function countDigits(num) {
  * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/while
  */
 function sumOfDigits(num) {
-  // Implementation goes here.
+  if (!Number.isInteger(num)) return 0;
+  return Math.abs(num)
+    .toString()
+    .split('')
+    .reduce((sum, digit) => sum + Number(digit), 0);
 }
 
 /**
@@ -81,7 +86,9 @@ function sumOfDigits(num) {
  * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/while
  */
 function reverseNumber(num) {
-  // Implementation goes here.
+  if (!Number.isInteger(num)) return 0;
+  const reversed = parseInt(Math.abs(num).toString().split('').reverse().join(''));
+  return num < 0 ? -reversed : reversed;
 }
 
 /**
@@ -93,7 +100,7 @@ function reverseNumber(num) {
  * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else
  */
 function isWithinRange(num, min, max) {
-  // Implementation goes here.
+  return num >= min && num <= max;
 }
 
 // Export functions
